@@ -1,8 +1,7 @@
 Test from client-server app with aiohttp.
 
 This project use:
-    Python 3.10.5
-    pip 22.0.4
+    Python 3.10.5, pip 22.0.4
 
 1.- Create env:
     Windows -> py -m venv env
