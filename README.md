@@ -1,6 +1,6 @@
 Test from client-server app with aiohttp.
 
-This project use:  
+This project uses:  
     Python 3.10.5  
     pip 22.0.4
 
