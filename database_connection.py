@@ -1,5 +1,5 @@
 import sqlite3
-from sqlite3 import Connection, Error
+from sqlite3 import Error
 
 class DatabaseConnection(object):
     """Singleton Class to manage connection to sqlite database."""
@@ -9,13 +9,12 @@ class DatabaseConnection(object):
             cls.instance = super(DatabaseConnection, cls).__new__(cls)
         return cls.instance
 
-    def connect(self, database_url: str)-> Connection:
+    def connect(self, database_url: str):
         """Create connection with database url.
         Args:
             database_url (str) : Database url
         Returns:
-            Connection / None
-                Return the database connection, None if error when trying to connect
+            Connection / None : Return the database connection, None if error when trying to connect
         """
         self.__connection = None
         try:
@@ -25,7 +24,7 @@ class DatabaseConnection(object):
         finally:
             return self.__connection
     
-    def disconnect(self)-> None:
+    def disconnect(self):
         """Close connection to database."""
         if self.__connection:
             self.__connection.close()

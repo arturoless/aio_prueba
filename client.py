@@ -4,9 +4,9 @@ import json
 from aiohttp import ClientSession
 
 async def websocket():
+    """Connect to the WebSocket"""
     session = ClientSession()
     async with session.ws_connect('http://127.0.0.1:8080/ws') as ws:
-        await ws.send_str("aaaaaa")
         async for message in ws:
             if message.type == aiohttp.WSMsgType.TEXT:
                     print(message.data)
@@ -19,7 +19,6 @@ async def websocket():
 
 async def get_pokemons():
     """Get the pokemons from PokeAPI and send it to server"""
-
     async with aiohttp.ClientSession() as session:
         pokemon_url = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
         server_url = "http://127.0.0.1:8080/pokemon"
@@ -47,4 +46,3 @@ async def main():
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
 loop.run_until_complete(main())
-# asyncio.run(main())
